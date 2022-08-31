@@ -1,0 +1,26 @@
+version: "3"
+networks:
+    backend:
+        driver: bridge
+services:
+    api:
+        build: .
+        ports:
+            - "3000:3000"
+        depends_on:
+            - db
+        networks:
+            - backend
+    db:
+        image: postgres:alpine
+        restart: always
+        env_file:
+            - .env
+        environment:
+            - PG_HOST=${APP_DB_PATH}
+            - PG_PORT=${APP_DB_PORT}
+            - POSTGRES_USER=${APP_DB_USER}
+            - POSTGRES_PASSWORD=${APP_DB_PASSWORD}
+            - POSTGRES_DB=${APP_DB_DB}
+        networks:
+            - backend

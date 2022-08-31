@@ -1,0 +1,16 @@
+node_modules
+uploads
+!uploads/demo*.jpg
+
+build/
+dist/
+tmp/
+temp/
+
+*.zip
+.Ds_store
+*.tgz
+*.log
+.vscode
+*.d.ts
+.env
