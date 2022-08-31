@@ -22,4 +22,7 @@ dbCreateConnection().then(() => {
     app.listen(port, () => {
         console.log(`Example app listening at http://localhost:${port}`);
     });
-})
+}).catch(e => {
+    console.log(`Couldn't connect to the database, attempting restart`);
+    process.exit()
+});

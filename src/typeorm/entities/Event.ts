@@ -29,5 +29,5 @@ export class Event {
     eager: true,
     nullable: true,
   })
-  img: Upload[];
+  files: Upload[];
 }

@@ -5,6 +5,7 @@ networks:
 services:
     api:
         build: .
+        restart: always
         ports:
             - "3000:3000"
         depends_on:

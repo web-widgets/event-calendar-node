@@ -6,7 +6,7 @@ export const eventFields = [
     "type",
     "text",
     "details",
-    "img"
+    "files"
 ];
 export function getEventFields(event: Record<string, any>) {
     return Object.keys(event)

@@ -20,8 +20,10 @@ export const add = async (req: Request, res: Response, next: NextFunction) => {
     const uploadsRepository = getRepository(Upload);
     try {
         const { file } = req;
+        console.log(file);
+
         const fullPath = `${serverUrl}/${file.path}`;
-        const up = await uploadsRepository.save({ url: fullPath, name: file.filename })
+        const up = await uploadsRepository.save({ url: fullPath, name: file.originalname })
         res.send(up);
 
     } catch (err) {

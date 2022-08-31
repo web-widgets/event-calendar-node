@@ -6,7 +6,7 @@ export class Upload {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Event, event => event.img, { onDelete: 'CASCADE', onUpdate: 'CASCADE', nullable: true })
+    @ManyToOne(() => Event, event => event.files, { onDelete: 'CASCADE', onUpdate: 'CASCADE', nullable: true })
     event: Event;
 
     @Column()
