@@ -1,12 +1,18 @@
 import { Router } from 'express';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 import { list, add } from '../controllers/uploads';
 
 const router = Router();
 
 const storage = multer.diskStorage({
+    
     destination: function (req, file, cb) {
+        const uploadDir = path.join(__dirname, "../../uploads")
+        if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir)
+        }
         cb(null, "./uploads");
     },
     filename: function (req, file, cb) {
